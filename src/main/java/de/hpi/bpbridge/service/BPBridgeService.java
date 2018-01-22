@@ -2,7 +2,7 @@ package de.hpi.bpbridge.service;
 
 import de.hpi.bpbridge.model.database.OfferRepository;
 import de.hpi.bpbridge.model.database.ShopRepository;
-import de.hpi.bpbridge.model.database.data.Offer;
+import de.hpi.restclient.pojo.Offer;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

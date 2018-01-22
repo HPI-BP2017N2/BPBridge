@@ -1,6 +1,6 @@
 package de.hpi.bpbridge.model.database;
 
-import de.hpi.bpbridge.model.database.data.Offer;
+import de.hpi.restclient.pojo.Offer;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package de.hpi.bpbridge.model.database;
 
-import de.hpi.bpbridge.model.database.data.Shop;
+import de.hpi.restclient.pojo.Shop;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

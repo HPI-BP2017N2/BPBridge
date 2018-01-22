@@ -1,8 +1,8 @@
 package de.hpi.bpbridge.controller;
 
-import de.hpi.bpbridge.dto.GetRandomOffersResponse;
-import de.hpi.bpbridge.dto.ShopIDToUrlResponse;
 import de.hpi.bpbridge.service.BPBridgeService;
+import de.hpi.restclient.dto.GetRandomOffersResponse;
+import de.hpi.restclient.dto.ShopIDToUrlResponse;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Getter(AccessLevel.PRIVATE) @Setter(AccessLevel.PRIVATE)
 public class BPBridgeController {
 
-    @Getter(AccessLevel.PRIVATE) @Setter(AccessLevel.PRIVATE) private BPBridgeService service;
+    private BPBridgeService service;
 
     @Autowired
     public BPBridgeController(BPBridgeService service){

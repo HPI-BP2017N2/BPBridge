@@ -3,7 +3,7 @@ package de.hpi.bpbridge.model.database;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-import de.hpi.bpbridge.model.database.data.Offer;
+import de.hpi.restclient.pojo.Offer;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
