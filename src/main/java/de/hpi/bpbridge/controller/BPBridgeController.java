@@ -29,9 +29,9 @@ public class BPBridgeController {
 
     @RequestMapping(value = "/getRandomOffers", method = RequestMethod.GET, produces = "application/json")
     public GetRandomOffersResponse getRandomOffers(@RequestParam(value="shopID") long shopID, @RequestParam
-            (value="count") int count) {
+            (value="count") int count, @RequestParam(value = "offset", defaultValue = "0") int offset) {
         GetRandomOffersResponse response = new GetRandomOffersResponse();
-        response.setOffers(getService().getFirstNOffersOfShop(shopID, count));
+        response.setOffers(getService().getFirstNOffersOfShop(shopID, count, offset));
         return response;
     }
 }

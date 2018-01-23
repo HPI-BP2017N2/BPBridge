@@ -28,8 +28,8 @@ public class BPBridgeService {
         return getShopRepository().findByShopID(shopID).getUrl();
     }
 
-    public List<Offer> getFirstNOffersOfShop(long shopID, int maxCount) {
-        return getOfferRepository().getFirstOffersOfShop(shopID, maxCount);
+    public List<Offer> getFirstNOffersOfShop(long shopID, int maxCount, int offset) {
+        return getOfferRepository().getFirstOffersOfShop(shopID, maxCount, offset);
     }
 
 }

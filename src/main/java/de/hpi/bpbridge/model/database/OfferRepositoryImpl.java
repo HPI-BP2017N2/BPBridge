@@ -27,11 +27,11 @@ public class OfferRepositoryImpl implements OfferRepository {
 
 
     @Override
-    public List<Offer> getFirstOffersOfShop(long shopID, int maxOffers) {
+    public List<Offer> getFirstOffersOfShop(long shopID, int maxOffers, int offset) {
         List<Offer> offers = new LinkedList<>();
         DBCollection collection = getCollectionByShopID(shopID);
         if (collection != null){
-            DBCursor cursor = collection.find().limit(maxOffers);
+            DBCursor cursor = collection.find().skip(offset).limit(maxOffers);
             while (cursor.hasNext()){
                 offers.add(convertDBObjectToOffer(cursor.next()));
             }

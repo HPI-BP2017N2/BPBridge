@@ -8,6 +8,6 @@ import java.util.List;
 @Repository
 public interface OfferRepository {
 
-    List<Offer> getFirstOffersOfShop(long shopID, int maxOffers);
+    List<Offer> getFirstOffersOfShop(long shopID, int maxOffers, int offset);
 
 }
