@@ -2,6 +2,7 @@ package de.hpi.bpbridge.controller;
 
 import de.hpi.bpbridge.service.BPBridgeService;
 import de.hpi.restclient.dto.GetRandomOffersResponse;
+import de.hpi.restclient.dto.MatchAttributeResponse;
 import de.hpi.restclient.dto.ShopIDToUrlResponse;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -32,6 +33,15 @@ public class BPBridgeController {
             (value="count") int count, @RequestParam(value = "offset", defaultValue = "0") int offset) {
         GetRandomOffersResponse response = new GetRandomOffersResponse();
         response.setOffers(getService().getFirstNOffersOfShop(shopID, count, offset));
+        return response;
+    }
+
+    @RequestMapping(value = "/matchAttribute" , method = RequestMethod.GET, produces = "application/json")
+    public MatchAttributeResponse matchAttribute(@RequestParam(value="shopID") long shopID, @RequestParam
+            (value="searchAttribute") String searchAttribute, @RequestParam(value = "attributeValue")
+            String attributeValue){
+        MatchAttributeResponse response = new MatchAttributeResponse();
+        response.setOffers(getService().getMatchAttribute(shopID,  searchAttribute, attributeValue));
         return response;
     }
 }

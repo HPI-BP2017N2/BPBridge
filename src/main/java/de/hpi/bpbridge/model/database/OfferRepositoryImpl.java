@@ -1,5 +1,6 @@
 package de.hpi.bpbridge.model.database;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
@@ -33,6 +34,19 @@ public class OfferRepositoryImpl implements OfferRepository {
         if (collection != null){
             DBCursor cursor = collection.find().skip(offset).limit(maxOffers);
             while (cursor.hasNext()){
+                offers.add(convertDBObjectToOffer(cursor.next()));
+            }
+        }
+        return offers;
+    }
+
+    @Override
+    public List<Offer> matchOffersOfShopWithAttribute(long shopID, String searchAttribute, String attributeValue) {
+        List<Offer> offers = new LinkedList<>();
+        DBCollection collection = getCollectionByShopID(shopID);
+        if (collection != null) {
+            DBCursor cursor = collection.find(new BasicDBObject(searchAttribute, attributeValue));
+            while (cursor.hasNext()) {
                 offers.add(convertDBObjectToOffer(cursor.next()));
             }
         }
