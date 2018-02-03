@@ -58,7 +58,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>de.hpi.crawler.Application</mainClass>
+                            <mainClass>de.hpi.bpbridge.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
