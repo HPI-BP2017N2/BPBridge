@@ -14,11 +14,12 @@ pipeline {
              }
          }
          stage 'All tests'
+            steps {
              mvn 'test -B -s $MAVEN_SETTINGS'
-             step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
              if (currentBuild.result == "UNSTABLE") {
                  // input "Unit tests are failing, proceed?"
                  sh "exit 1"
+             }
              }
          stage('Publish') {
              steps {
