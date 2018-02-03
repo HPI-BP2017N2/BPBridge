@@ -13,12 +13,15 @@ pipeline {
                  }
              }
          }
-         stage 'All tests'
+         stage ('All tests') {
             steps {
-             mvn 'test -B -s $MAVEN_SETTINGS'
-             if (currentBuild.result == "UNSTABLE") {
-                 // input "Unit tests are failing, proceed?"
-                 sh "exit 1"
+            configFileProvider([configFile(fileId: '9ea7bb72-cb40-47e4-8af0-e7cb98aeb62c', variable: 'MAVEN_SETTINGS')]) {
+                sh 'mvn test -B -s $MAVEN_SETTINGS'
+                if (currentBuild.result == "UNSTABLE") {
+                    // input "Unit tests are failing, proceed?"
+                    sh "exit 1"
+                }
+                }
              }
              }
          stage('Publish') {
