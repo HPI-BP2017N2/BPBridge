@@ -56,6 +56,9 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                <includes>
+                    <include>application.yml</include>
+                </includes>
             </resource>
         </resources>
         <plugins>
@@ -81,7 +84,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <addResources>false</addResources>
                     <executable>true</executable>
                 </configuration>
                 <executions>
