@@ -3,8 +3,8 @@ spring:
     mongodb:
       host: ${MONGO_IP}
       port: ${MONGO_PORT}
-      username: ${MONGO_USERNAME}
-      password: ${MONGO_PW}
-      database: ${MONGO_DB_BRIDGE}
+      username: ${MONGO_BRIDGE_USERNAME}
+      password: ${MONGO_BRIDGE_PW}
+      database: data
 server:
   port: ${BRIDGE_PORT}
