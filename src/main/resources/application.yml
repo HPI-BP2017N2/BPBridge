@@ -7,4 +7,4 @@ spring:
       password: ${MONGO_BRIDGE_PW}
       database: data
 server:
-  port: @BRIDGE_PORT@
+  port: ${BRIDGE_PORT}
