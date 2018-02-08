@@ -32,7 +32,7 @@ public class BPBridgeService {
         return getOfferRepository().getFirstOffersOfShop(shopID, maxCount, offset);
     }
 
-    public List<Offer> getMatchAttribute(long shopID, String searchAttribute, String attributeValue) {
+    public List<Offer> getMatchAttribute(long shopID, String searchAttribute, Object attributeValue) {
         return getOfferRepository().matchOffersOfShopWithAttribute(shopID, searchAttribute,
                 attributeValue);
     }

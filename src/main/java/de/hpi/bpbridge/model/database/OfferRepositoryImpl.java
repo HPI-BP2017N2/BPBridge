@@ -41,7 +41,7 @@ public class OfferRepositoryImpl implements OfferRepository {
     }
 
     @Override
-    public List<Offer> matchOffersOfShopWithAttribute(long shopID, String searchAttribute, String attributeValue) {
+    public List<Offer> matchOffersOfShopWithAttribute(long shopID, String searchAttribute, Object attributeValue) {
         List<Offer> offers = new LinkedList<>();
         DBCollection collection = getCollectionByShopID(shopID);
         if (collection != null) {

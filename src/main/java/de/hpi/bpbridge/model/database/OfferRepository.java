@@ -9,6 +9,6 @@ import java.util.List;
 public interface OfferRepository {
 
     List<Offer> getFirstOffersOfShop(long shopID, int maxOffers, int offset);
-    List<Offer> matchOffersOfShopWithAttribute(long shopID, String searchAttribute, String attributeValue);
+    List<Offer> matchOffersOfShopWithAttribute(long shopID, String searchAttribute, Object attributeValue);
 
 }
