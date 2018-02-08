@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -49,10 +50,11 @@ public class BPBridgeController {
 
     @RequestMapping(value = "/matchAttributeWithMap" , method = RequestMethod.GET, produces = "application/json")
     public MatchAttributeResponse matchAttributeWithMap(@RequestParam(value="shopID") long shopID, @RequestParam
-            (value="searchAttribute") String searchAttribute, @RequestParam(value = "attributeValue")
-                                                                Map<String, String> attributeValue){
+            (value="searchAttribute") String searchAttribute, @RequestParam(value = "attributeValue") String attributeValue){
+        Map<String, String> value = new HashMap<>();
+        value.put("0", attributeValue);
         MatchAttributeResponse response = new MatchAttributeResponse();
-        response.setOffers(getService().getMatchAttribute(shopID,  searchAttribute, attributeValue));
+        response.setOffers(getService().getMatchAttribute(shopID,  searchAttribute, value));
         return response;
     }
 }

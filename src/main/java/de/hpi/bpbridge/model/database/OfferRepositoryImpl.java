@@ -44,6 +44,7 @@ public class OfferRepositoryImpl implements OfferRepository {
     public List<Offer> matchOffersOfShopWithAttribute(long shopID, String searchAttribute, Object attributeValue) {
         List<Offer> offers = new LinkedList<>();
         DBCollection collection = getCollectionByShopID(shopID);
+        if(searchAttribute.equals("offerId")) attributeValue = Long.valueOf(attributeValue.toString());
         if (collection != null) {
             DBCursor cursor = collection.find(new BasicDBObject(searchAttribute, attributeValue));
             while (cursor.hasNext()) {
