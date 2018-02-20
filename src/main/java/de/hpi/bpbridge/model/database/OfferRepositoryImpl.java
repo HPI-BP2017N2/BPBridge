@@ -9,6 +9,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -18,14 +19,9 @@ import java.util.List;
 @Repository
 public class OfferRepositoryImpl implements OfferRepository {
 
-    @Getter(AccessLevel.PRIVATE) @Setter(AccessLevel.PRIVATE) private MongoTemplate mongoTemplate;
-
-    //initialization
     @Autowired
-    public OfferRepositoryImpl(MongoTemplate mongoTemplate) {
-        setMongoTemplate(mongoTemplate);
-    }
-
+    @Qualifier(value = "shopDataTemplate")
+    @Getter(AccessLevel.PRIVATE) @Setter(AccessLevel.PRIVATE) private MongoTemplate mongoTemplate;
 
     @Override
     public List<Offer> getFirstOffersOfShop(long shopID, int maxOffers, int offset) {
