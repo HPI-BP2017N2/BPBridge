@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ShopRepositoryImpl implements ShopRepository {
     @Autowired
-    @Qualifier(value = "shopDataTemplate")
+    @Qualifier(value = "dataTemplate")
     @Getter(AccessLevel.PRIVATE) @Setter(AccessLevel.PRIVATE) private MongoTemplate mongoTemplate;
 
     @Override
