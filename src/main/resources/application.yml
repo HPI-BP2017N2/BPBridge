@@ -1,4 +1,3 @@
-
 data:
   mongodb:
     host: ${MONGO_IP}
@@ -14,5 +13,13 @@ shopData:
     username: ${MONGO_BRIDGE_USER}
     password: ${MONGO_BRIDGE_PASSW}
     database: shopData
+
+idealobridge:
+  oAuth2ClientId: ${CLIENT_ID}
+  oAuth2ClientSecret: ${CLIENT_SECRET}
+  accessTokenURI: ${ACCESS_TOKEN_URI}
+  apiUrl: ${API_URL}
+  randomOfferRoute: "/sampleOffers"
+
 server:
   port: ${BRIDGE_PORT}
