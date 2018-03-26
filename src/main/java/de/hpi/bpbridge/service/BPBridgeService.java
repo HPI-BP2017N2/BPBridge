@@ -2,6 +2,7 @@ package de.hpi.bpbridge.service;
 
 import de.hpi.bpbridge.dto.IdealoOffer;
 import de.hpi.bpbridge.dto.IdealoOffers;
+import de.hpi.bpbridge.dto.IdealoShop;
 import de.hpi.bpbridge.model.database.OfferRepository;
 import de.hpi.bpbridge.model.database.ShopRepository;
 import de.hpi.bpbridge.properties.IdealoBridgeProperties;
@@ -42,11 +43,10 @@ public class BPBridgeService {
     }
 
     public String getShopUrlForShopID(long shopID) {
-        return getShopRepository().findByShopID(shopID).getUrl();
+        return getOAuthRestTemplate().getForObject(getRootUrlURI(shopID), IdealoShop.class).getShopUrl();
     }
 
     public List<Offer> getFirstNOffersOfShop(long shopID, int maxCount, int offset) {
-//        return getOfferRepository().getFirstOffersOfShop(shopID, maxCount, offset);
         return getFirstOffersOfShop(shopID, maxCount, offset);
     }
 
@@ -92,6 +92,14 @@ public class BPBridgeService {
         return UriComponentsBuilder.fromUriString(getProperties().getApiUrl())
                 .path(getProperties().getRandomOfferRoute() + "/" + shopID)
                 .queryParam("maxCount", maxCount)
+                .build()
+                .encode()
+                .toUri();
+    }
+
+    private URI getRootUrlURI (long shopID) {
+        return UriComponentsBuilder.fromUriString(getProperties().getApiUrl())
+                .path(getProperties().getRootUrlRoute() + "/" + shopID)
                 .build()
                 .encode()
                 .toUri();

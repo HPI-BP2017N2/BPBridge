@@ -14,5 +14,5 @@ import org.springframework.stereotype.Component;
 @Primary
 public class IdealoBridgeProperties {
 
-    private String oAuth2ClientId, oAuth2ClientSecret, accessTokenURI, apiUrl, randomOfferRoute;
+    private String oAuth2ClientId, oAuth2ClientSecret, accessTokenURI, apiUrl, randomOfferRoute, rootUrlRoute;
 }
